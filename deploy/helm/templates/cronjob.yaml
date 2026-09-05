@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-acs-conformance
+spec:
+  schedule: {{ .Values.schedule | quote }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: conformance
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              args: ["run", "--pack", "packs/core.json", "--output", "/tmp/report.json", "--fail-below", {{ .Values.failBelow | quote }}]
+              securityContext:
+                allowPrivilegeEscalation: false
+                readOnlyRootFilesystem: true
+                runAsNonRoot: true
+                runAsUser: 10001

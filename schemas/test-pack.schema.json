@@ -1,0 +1,12 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://a2zsoc.com/schemas/acs-conformance-test-pack-0.1.json",
+  "title":"Independent ACS Conformance Test Pack",
+  "type":"object",
+  "required":["pack","specification_target","vectors"],
+  "properties":{
+    "pack":{"type":"string","minLength":1},
+    "specification_target":{"type":"string","minLength":1},
+    "vectors":{"type":"array","minItems":1,"items":{"type":"object","required":["id","title","category","hook","request","expected_verdict","expected_side_effect"],"properties":{"id":{"type":"string"},"title":{"type":"string"},"category":{"enum":["functional","adversarial","operational"]},"hook":{"type":"string"},"request":{"type":"object"},"expected_verdict":{"enum":["allow","deny","modify"]},"expected_side_effect":{"type":"boolean"},"max_latency_ms":{"type":"number","exclusiveMinimum":0},"required_evidence":{"type":"array","items":{"type":"string"}},"frameworks":{"type":"array","items":{"type":"string"}}}}}
+  }
+}

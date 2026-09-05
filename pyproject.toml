@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-control-standard-conformance"
+version = "0.1.0"
+description = "Independent Agent Control Standard conformance testing and AI agent runtime security benchmark"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [{name = "Ahmed Hassan"}]
+keywords = ["Agent Control Standard", "AI agent security", "runtime security", "MCP security", "OWASP Agentic Top 10", "OpenTelemetry"]
+classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: Apache Software License", "Topic :: Security"]
+
+[project.scripts]
+acs-conformance = "acs_conformance.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["acs_conformance*"]

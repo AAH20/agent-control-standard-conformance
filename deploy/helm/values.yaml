@@ -1,0 +1,5 @@
+image:
+  repository: ghcr.io/aah20/agent-control-standard-conformance
+  tag: latest
+schedule: "0 2 * * *"
+failBelow: L3

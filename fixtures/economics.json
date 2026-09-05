@@ -1,0 +1,21 @@
+{
+  "controlled_actions":1000000,
+  "confirmed_unsafe_actions_blocked":40,
+  "annual_infrastructure_cost":12000,
+  "validation_hours":160,
+  "loaded_hourly_cost":95,
+  "implementation_cost":30000,
+  "latency_cost_per_ms":0.000001,
+  "added_latency_ms":12,
+  "incident_probability":{"p10":0.01,"p50":0.08,"p90":0.25},
+  "probable_impact":{"p10":50000,"p50":750000,"p90":5000000},
+  "demonstrated_control_effectiveness":0.65,
+  "incident_response_hours_avoided":120,
+  "assurance_hours_avoided":300,
+  "direct_revenue_enabled":0,
+  "contributory_revenue":500000,
+  "attribution_factor":0.15,
+  "additional_reviews":8,
+  "qualification_rate":0.25,
+  "average_contract_value":100000
+}

@@ -1,0 +1,21 @@
+name: Agent Control Standard Conformance
+description: Execute independent runtime-control conformance and adversarial side-effect tests
+branding:
+  icon: check-circle
+  color: green
+inputs:
+  pack:
+    description: Test-vector pack
+    required: false
+    default: packs/core.json
+  fail-below:
+    description: Minimum independent assessment level L0-L5
+    required: false
+    default: L3
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        PYTHONPATH: ${{ github.action_path }}
+      run: python -m acs_conformance.cli run --pack "${{ github.action_path }}/${{ inputs.pack }}" --output acs-conformance-report.json --junit acs-conformance-junit.xml --sarif acs-conformance.sarif --fail-below "${{ inputs.fail-below }}"
